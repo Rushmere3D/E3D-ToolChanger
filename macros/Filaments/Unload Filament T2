@@ -1,0 +1,29 @@
+T2 P0
+M83                                    ; relative extruder mode
+M291 P"Hotend is heating up..." S1 T0  ; display message
+M568 P2 A2 S240                        ; turn hotend heater on
+M116                                   ; wait for the temperatures to be reached
+ 
+M300 S200 P500                         ; beep
+G4 S1
+M300 S200 P500
+G4 S1
+M300 S200 P500
+ 
+M292                                   ; hide message
+M291 P"Filament ready to unload?" S3   ; ask the user
+G1 E5 F1000                            ; extrude fast
+G4 S2                         		   ; wait
+G1 E-750 F5000                         ; extrude fast
+G1 E-120 F500                          ; extrude slow
+M400    
+
+M300 S200 P500                         ; beep
+G4 S1
+M300 S200 P500
+G4 S1
+M300 S200 P500
+
+M568 P2 A0 R0                          ; turn hotend heater off
+M18 E2                                 ; disable extruder stepper
+T-1 P0
