@@ -1,0 +1,10 @@
+;G1 C241 F10000
+;M400
+
+M400
+M906 C700    ; Raise motor current a bit.
+M400
+G1 C245 F5000
+M400
+M906 C400    ; Put it back to normal
+M400
